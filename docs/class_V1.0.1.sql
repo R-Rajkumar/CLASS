@@ -9,8 +9,8 @@ USE `class` ;
 -- Table `class`.`exam_type`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `class`.`exam_type` (
-  `idexam_type` INT NOT NULL ,
-  `type_name` VARCHAR(45) NULL ,
+  `idexam_type` INT NOT NULL AUTO_INCREMENT ,
+  `type_name` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`idexam_type`) )
 ENGINE = InnoDB;
 
@@ -19,9 +19,9 @@ ENGINE = InnoDB;
 -- Table `class`.`subject`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `class`.`subject` (
-  `idsubject` INT NOT NULL ,
+  `idsubject` INT NOT NULL AUTO_INCREMENT ,
   `subject_code` VARCHAR(45) NULL ,
-  `subject_name` VARCHAR(45) NULL ,
+  `subject_name` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`idsubject`) )
 ENGINE = InnoDB;
 
@@ -30,10 +30,10 @@ ENGINE = InnoDB;
 -- Table `class`.`exam_detail`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `class`.`exam_detail` (
-  `idexam_detail` INT NOT NULL ,
-  `school_no` VARCHAR(45) NULL ,
+  `idexam_detail` INT NOT NULL AUTO_INCREMENT ,
+  `school_no` VARCHAR(45) NOT NULL ,
   `date` DATE NULL ,
-  `grade` INT NULL ,
+  `grade` INT NOT NULL ,
   `division` VARCHAR(45) NULL ,
   `term` INT NULL ,
   `exam_type_idexam_type` INT NOT NULL ,
@@ -58,7 +58,7 @@ ENGINE = InnoDB;
 -- Table `class`.`student_performance`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `class`.`student_performance` (
-  `idstudent_performance` INT NOT NULL ,
+  `idstudent_performance` INT NOT NULL AUTO_INCREMENT ,
   `student_id` VARCHAR(45) NULL ,
   `exam_detail_idexam_detail` INT NOT NULL ,
   PRIMARY KEY (`idstudent_performance`) ,
