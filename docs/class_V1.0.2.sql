@@ -134,8 +134,8 @@ ENGINE = InnoDB;
 -- Table `class`.`results`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `class`.`results` (
-  `results` VARCHAR(5) NULL ,
   `student_performance_idstudent_performance` INT NOT NULL ,
+  `results` VARCHAR(5) NULL ,
   `exam_id_exam` INT NOT NULL ,
   INDEX `fk_results_student_performance1_idx` (`student_performance_idstudent_performance` ASC) ,
   INDEX `fk_results_exam1_idx` (`exam_id_exam` ASC) ,
