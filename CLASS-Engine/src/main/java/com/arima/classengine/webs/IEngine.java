@@ -1,5 +1,7 @@
 package com.arima.classengine.webs;
 
+import com.arima.classengine.engine.ExamStandard;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -73,5 +75,7 @@ public interface IEngine {
     @WebMethod
     public ArrayList<Integer> getNearestGlobalProfiles(int grade, int term, List<String> subjects, List<Integer> marks);
 
+      @WebMethod
+      public ExamStandard getStudentBasedStandard(int schoolNo, int year, int grade, String subject );
 
 }

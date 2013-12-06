@@ -29,11 +29,13 @@ public class ObjectFactory {
     private final static QName _SayHelloCLASSResponse_QNAME = new QName("http://webs.classengine.arima.com/", "sayHelloCLASSResponse");
     private final static QName _GetNearestGlobalProfilesResponse_QNAME = new QName("http://webs.classengine.arima.com/", "getNearestGlobalProfilesResponse");
     private final static QName _GetNearestLocalProfiles_QNAME = new QName("http://webs.classengine.arima.com/", "getNearestLocalProfiles");
+    private final static QName _GetStudentBasedStandardResponse_QNAME = new QName("http://webs.classengine.arima.com/", "getStudentBasedStandardResponse");
     private final static QName _SayHelloCLASS_QNAME = new QName("http://webs.classengine.arima.com/", "sayHelloCLASS");
     private final static QName _InsertStudents_QNAME = new QName("http://webs.classengine.arima.com/", "insertStudents");
     private final static QName _InsertStudentsResponse_QNAME = new QName("http://webs.classengine.arima.com/", "insertStudentsResponse");
     private final static QName _InsertExamPerformance_QNAME = new QName("http://webs.classengine.arima.com/", "insertExamPerformance");
     private final static QName _GetNearestLocalProfilesResponse_QNAME = new QName("http://webs.classengine.arima.com/", "getNearestLocalProfilesResponse");
+    private final static QName _GetStudentBasedStandard_QNAME = new QName("http://webs.classengine.arima.com/", "getStudentBasedStandard");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.arima.classengine.webs
@@ -65,6 +67,8 @@ public class ObjectFactory {
     public SayHelloCLASSResponse createSayHelloCLASSResponse() {
         return new SayHelloCLASSResponse();
     }
+
+
 
     /**
      * Create an instance of {@link GetNearestLocalProfiles }
@@ -114,12 +118,22 @@ public class ObjectFactory {
         return new InsertStudents();
     }
 
+
+
     /**
      * Create an instance of {@link GetNearestLocalProfilesResponse }
      * 
      */
     public GetNearestLocalProfilesResponse createGetNearestLocalProfilesResponse() {
         return new GetNearestLocalProfilesResponse();
+    }
+
+    /**
+     * Create an instance of {@link ExamStandard }
+     * 
+     */
+    public ExamStandard createExamStandard() {
+        return new ExamStandard();
     }
 
     /**
@@ -167,6 +181,8 @@ public class ObjectFactory {
         return new JAXBElement<GetNearestLocalProfiles>(_GetNearestLocalProfiles_QNAME, GetNearestLocalProfiles.class, null, value);
     }
 
+
+
     /**
      * Create an instance of {@link javax.xml.bind.JAXBElement }{@code <}{@link SayHelloCLASS }{@code >}}
      * 
@@ -211,5 +227,7 @@ public class ObjectFactory {
     public JAXBElement<GetNearestLocalProfilesResponse> createGetNearestLocalProfilesResponse(GetNearestLocalProfilesResponse value) {
         return new JAXBElement<GetNearestLocalProfilesResponse>(_GetNearestLocalProfilesResponse_QNAME, GetNearestLocalProfilesResponse.class, null, value);
     }
+
+
 
 }

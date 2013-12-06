@@ -17,11 +17,13 @@ public class CFinal {
     public static void main(String[] args) throws Exception {
 
         ArrayList<Integer> marks = new ArrayList<Integer>();
-        marks.add(100);
-        marks.add(8);
+
+        marks.add(0);
+        marks.add(0);
         marks.add(56);
-        marks.add(20);
-        marks.add(80);
+        marks.add(2);
+        marks.add(0);
+
 
         System.out.println(predictNextTerm(null, 2008, 11, 3, "MATHEMATICS", 4545, marks));
 

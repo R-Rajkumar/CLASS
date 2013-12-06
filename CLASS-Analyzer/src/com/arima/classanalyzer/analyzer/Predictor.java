@@ -1,6 +1,7 @@
 package com.arima.classanalyzer.analyzer;
 
 import com.arima.classanalyzer.core.CFinal;
+import com.arima.classanalyzer.core.ExamStandard;
 import com.arima.classanalyzer.webs.client.localhost._7070.class_wsdl.EngineService;
 import com.arima.classanalyzer.webs.client.localhost._7070.class_wsdl.IEngine;
 import com.mysql.jdbc.Connection;
@@ -39,19 +40,28 @@ public class Predictor {
         //       subjects.add("BUSSINESS AND ACCOUNTING");
 
         marks.add(90);
-        marks.add(82);
+        marks.add(null);
 //        marks.add(96);
         marks.add(90);
         marks.add(82);
         marks.add(96);
-        marks.add(82);
+        marks.add(null);
 //        marks.add(96);
 
         EngineService engineService = new EngineService();
         IEngine engine = engineService.getEnginePort();
-        System.out.println(ProfileMatcher.getNearestGlobalProfiles(11, 3, subjects, marks));
-        System.out.println(ProfileMatcher.getNearestLocalProfiles(11086, 11, 3, subjects, marks));
-        System.out.println(engine.sayHelloCLASS());
+       // System.out.println(ProfileMatcher.getNearestGlobalProfiles(11, 3, subjects, marks));
+                              ExamStandard ex= engine.getStudentBasedStandard(11086, 2009, 11, "SCIENCE AND TECHNOLOGY")    ;
+
+
+        System.out.println(ex.getGeneral());
+        System.out.println(ex.getGeneralCount()[3]);
+        System.out.println(ex.getJaccardIndex());
+        System.out.println(ex.getSequenceAlignmentScore());
+        System.out.println(ex.getTerm());
+        System.out.println(ex.getTermCount()[2]);
+//        System.out.println(ProfileMatcher.getNearestLocalProfiles(11086, 11, 3, subjects, marks));
+//        System.out.println(engine.sayHelloCLASS());
     }
 
     /**

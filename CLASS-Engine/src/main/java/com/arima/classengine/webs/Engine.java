@@ -1,7 +1,9 @@
 package com.arima.classengine.webs;
 
+import com.arima.classengine.comparator.SimilarityMeasures;
 import com.arima.classengine.datasync.Synchronizer;
 import com.arima.classengine.engine.Analyzer;
+import com.arima.classengine.engine.ExamStandard;
 
 import javax.jws.WebService;
 import java.util.ArrayList;
@@ -57,5 +59,18 @@ public class Engine implements IEngine {
 
     }
 
+
+
+    public ExamStandard getStudentBasedStandard(int schoolNo, int year, int grade, String subject) {
+        try {
+            return Analyzer.getExamStandard(schoolNo, year, grade, subject);
+        } catch (Exception e) {
+            return null;
+
+
+        }
+
+
+    }
 
 }

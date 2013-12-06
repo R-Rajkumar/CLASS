@@ -1,6 +1,7 @@
 
 package com.arima.classanalyzer.webs.client.localhost._7070.class_wsdl;
 
+import com.arima.classanalyzer.core.ExamStandard;
 import com.arima.classanalyzer.webs.client.ObjectFactory;
 
 import javax.jws.WebMethod;
@@ -27,16 +28,6 @@ public interface IEngine {
 
 
     /**
-     * @return returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sayHelloCLASS", targetNamespace = "http://webs.classengine.arima.com/", className = "com.arima.classengine.webs.SayHelloCLASS")
-    @ResponseWrapper(localName = "sayHelloCLASSResponse", targetNamespace = "http://webs.classengine.arima.com/", className = "com.arima.classengine.webs.SayHelloCLASSResponse")
-    @Action(input = "http://webs.classengine.arima.com/IEngine/sayHelloCLASSRequest", output = "http://webs.classengine.arima.com/IEngine/sayHelloCLASSResponse")
-    public String sayHelloCLASS();
-
-    /**
      * @param arg0
      * @return returns java.lang.String
      */
@@ -48,6 +39,16 @@ public interface IEngine {
     public String insertStudents(
             @WebParam(name = "arg0", targetNamespace = "")
             String arg0);
+
+    /**
+     * @return returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sayHelloCLASS", targetNamespace = "http://webs.classengine.arima.com/", className = "com.arima.classengine.webs.SayHelloCLASS")
+    @ResponseWrapper(localName = "sayHelloCLASSResponse", targetNamespace = "http://webs.classengine.arima.com/", className = "com.arima.classengine.webs.SayHelloCLASSResponse")
+    @Action(input = "http://webs.classengine.arima.com/IEngine/sayHelloCLASSRequest", output = "http://webs.classengine.arima.com/IEngine/sayHelloCLASSResponse")
+    public String sayHelloCLASS();
 
     /**
      * @param arg0
@@ -108,5 +109,27 @@ public interface IEngine {
             List<String> arg2,
             @WebParam(name = "arg3", targetNamespace = "")
             List<Integer> arg3);
+
+    /**
+     * @param arg3
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return returns com.arima.classengine.webs.ExamStandard
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getStudentBasedStandard", targetNamespace = "http://webs.classengine.arima.com/", className = "com.arima.classengine.webs.GetStudentBasedStandard")
+    @ResponseWrapper(localName = "getStudentBasedStandardResponse", targetNamespace = "http://webs.classengine.arima.com/", className = "com.arima.classengine.webs.GetStudentBasedStandardResponse")
+    @Action(input = "http://webs.classengine.arima.com/IEngine/getStudentBasedStandardRequest", output = "http://webs.classengine.arima.com/IEngine/getStudentBasedStandardResponse")
+    public ExamStandard getStudentBasedStandard(
+            @WebParam(name = "arg0", targetNamespace = "")
+            int arg0,
+            @WebParam(name = "arg1", targetNamespace = "")
+            int arg1,
+            @WebParam(name = "arg2", targetNamespace = "")
+            int arg2,
+            @WebParam(name = "arg3", targetNamespace = "")
+            String arg3);
 
 }
