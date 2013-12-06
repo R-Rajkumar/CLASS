@@ -53,7 +53,151 @@ public class CAnalyzer {
 	private Classifier tempModel;
 	private double timeToBuild = 0;
 
-	public static void main(String[] args) throws Exception {
+    /**
+     * @return the classifierType
+     */
+    private CClassifier getClassifierType() {
+        return classifierType;
+    }
+
+    /**
+     * @param classifierType the classifierType to set
+     */
+    private void setClassifierType(CClassifier classifierType) {
+        this.classifierType = classifierType;
+    }
+
+    /**
+     * @return the evaluatorType
+     */
+    private CEvaluator getEvaluatorType() {
+        return evaluatorType;
+    }
+
+    /**
+     * @param evaluatorType the evaluatorType to set
+     */
+    private void setEvaluatorType(CEvaluator evaluatorType) {
+        this.evaluatorType = evaluatorType;
+    }
+
+    /**
+     * @return the binSize
+     */
+    private int getBinSize() {
+        return binSize;
+    }
+
+    /**
+     * @param binSize the binSize to set
+     */
+    private void setBinSize(int binSize) {
+        this.binSize = binSize;
+    }
+
+    /**
+     * @return the model
+     */
+    private Classifier getModel() {
+        return model;
+    }
+
+    /**
+     * @param model the model to set
+     */
+    private void setModel(Classifier model) {
+        this.model = model;
+    }
+
+    /**
+     * @return the train
+     */
+    private Instances getTrain() {
+        return train;
+    }
+
+    /**
+     * @param train the train to set
+     */
+    private void setTrain(Instances train) {
+        this.train = train;
+    }
+
+    /**
+     * @return the eval
+     */
+    private Evaluation getEval() {
+        return eval;
+    }
+
+    /**
+     * @param eval the eval to set
+     */
+    private void setEval(Evaluation eval) {
+        this.eval = eval;
+    }
+
+    /**
+     * @return the accuracy
+     */
+    private double getAccuracy() {
+        return accuracy;
+    }
+
+    /**
+     * @param accuracy the accuracy to set
+     */
+    private void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
+    }
+
+    /**
+     * @return the accuracyThreshold
+     */
+    private double getAccuracyThreshold() {
+        return accuracyThreshold;
+    }
+
+    /**
+     * @return the missingValueHandlerType
+     */
+    private CMissingValuesHandler getMissingValueHandlerType() {
+        return missingValueHandlerType;
+    }
+
+    /**
+     * @param missingValueHandlerType the missingValueHandlerType to set
+     */
+    private void setMissingValueHandlerType(
+            CMissingValuesHandler missingValueHandlerType) {
+        this.missingValueHandlerType = missingValueHandlerType;
+    }
+
+    /**
+     * @return the isTest
+     */
+    private boolean isTest() {
+        return isTest;
+    }
+
+    //for stats file naming only , subject parameter is there
+
+    /**
+     * @return the tempModel
+     */
+    private Classifier getTempModel() {
+        return tempModel;
+    }
+
+    /**
+     * @param tempModel the tempModel to set
+     */
+    private void setTempModel(Classifier tempModel) {
+        this.tempModel = tempModel;
+    }
+
+
+    public static void main(String[] args) throws Exception {
 
 		updateModel(2008, 10, 2, "SCIENCE AND TECHNOLOGY");
 		updateModel(2008, 10, 3, "SCIENCE AND TECHNOLOGY");
@@ -451,150 +595,6 @@ public class CAnalyzer {
 		int[] indices = attsel.selectedAttributes();
 
         return indices;
-	}
-
-
-	/**
-	 * @return the classifierType
-	 */
-	private CClassifier getClassifierType() {
-		return classifierType;
-	}
-
-	/**
-	 * @param classifierType the classifierType to set
-	 */
-	private void setClassifierType(CClassifier classifierType) {
-		this.classifierType = classifierType;
-	}
-
-	/**
-	 * @return the evaluatorType
-	 */
-	private CEvaluator getEvaluatorType() {
-		return evaluatorType;
-	}
-
-	/**
-	 * @param evaluatorType the evaluatorType to set
-	 */
-	private void setEvaluatorType(CEvaluator evaluatorType) {
-		this.evaluatorType = evaluatorType;
-	}
-
-	/**
-	 * @return the binSize
-	 */
-	private int getBinSize() {
-		return binSize;
-	}
-
-	/**
-	 * @param binSize the binSize to set
-	 */
-	private void setBinSize(int binSize) {
-		this.binSize = binSize;
-	}
-
-	/**
-	 * @return the model
-	 */
-	private Classifier getModel() {
-		return model;
-	}
-
-	/**
-	 * @param model the model to set
-	 */
-	private void setModel(Classifier model) {
-		this.model = model;
-	}
-
-	/**
-	 * @return the train
-	 */
-	private Instances getTrain() {
-		return train;
-	}
-
-	/**
-	 * @param train the train to set
-	 */
-	private void setTrain(Instances train) {
-		this.train = train;
-	}
-
-	/**
-	 * @return the eval
-	 */
-	private Evaluation getEval() {
-		return eval;
-	}
-
-	/**
-	 * @param eval the eval to set
-	 */
-	private void setEval(Evaluation eval) {
-		this.eval = eval;
-	}
-
-	/**
-	 * @return the accuracy
-	 */
-	private double getAccuracy() {
-		return accuracy;
-	}
-
-	/**
-	 * @param accuracy the accuracy to set
-	 */
-	private void setAccuracy(double accuracy) {
-		this.accuracy = accuracy;
-	}
-
-	/**
-	 * @return the accuracyThreshold
-	 */
-	private double getAccuracyThreshold() {
-		return accuracyThreshold;
-	}
-
-	/**
-	 * @return the missingValueHandlerType
-	 */
-	private CMissingValuesHandler getMissingValueHandlerType() {
-		return missingValueHandlerType;
-	}
-
-	/**
-	 * @param missingValueHandlerType the missingValueHandlerType to set
-	 */
-	private void setMissingValueHandlerType(
-			CMissingValuesHandler missingValueHandlerType) {
-		this.missingValueHandlerType = missingValueHandlerType;
-	}
-	
-	/**
-	 * @return the isTest
-	 */
-	private boolean isTest() {
-		return isTest;
-	}
-
-	//for stats file naming only , subject parameter is there
-	
-	/**
-	 * @return the tempModel
-	 */
-	private Classifier getTempModel() {
-		return tempModel;
-	}
-
-	/**
-	 * @param tempModel the tempModel to set
-	 */
-	private void setTempModel(Classifier tempModel) {
-		this.tempModel = tempModel;
 	}
 
 
