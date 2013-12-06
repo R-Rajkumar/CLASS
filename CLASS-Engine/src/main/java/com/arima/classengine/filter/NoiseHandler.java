@@ -19,15 +19,21 @@ import weka.filters.unsupervised.instance.RemoveWithValues;
 public class NoiseHandler {
 
     public static void main(String[] args) throws Exception {
-        InterquartileRange interquartileRange = new InterquartileRange();
-        Instances train = Utils.prepareTrainData(11, 3, "HISTORY");
+
+        Instances train = Utils.prepareTrainData(10, 1, "HISTORY");
         train = CFilter.removeAttributesByIndices(train, "1");
 
         ReplaceMissingValues rmv = new ReplaceMissingValues();
         rmv.setInputFormat(train);
         train = Filter.useFilter(train, rmv);
-//        System.out.println(train);
 
+        System.out.println(RemoveNoise(train));
+
+    }
+
+    public static Instances RemoveNoise(Instances train) throws Exception {
+
+        InterquartileRange interquartileRange = new InterquartileRange();
         interquartileRange.setInputFormat(train);
         interquartileRange.setExtremeValuesAsOutliers(true);
         train = Filter.useFilter(train, interquartileRange);
@@ -35,24 +41,17 @@ public class NoiseHandler {
         RemoveWithValues removeWithValues = new RemoveWithValues();
         removeWithValues.setInputFormat(train);
         String[] s = {"-C", "last", "-L", "2"};
-         removeWithValues.setOptions(s);
+        removeWithValues.setOptions(s);
         train = Filter.useFilter(train, removeWithValues);
+        train = CFilter.removeAttributesByIndices(train,"last");
 
-        System.out.println(train);
+        RemoveWithValues removeWithValues2 = new RemoveWithValues();
+        removeWithValues2.setInputFormat(train);
+        String[] s2 = {"-C", "last", "-L", "2"};
+        removeWithValues2.setOptions(s2);
+        train = Filter.useFilter(train, removeWithValues2);
+        train = CFilter.removeAttributesByIndices(train,"last");
+
+        return train;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

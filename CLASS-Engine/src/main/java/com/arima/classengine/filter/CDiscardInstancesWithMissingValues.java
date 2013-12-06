@@ -19,6 +19,9 @@ public class CDiscardInstancesWithMissingValues implements
 		for (int i = 0; i < train.numAttributes(); i++) {
 			train.deleteWithMissing(i);
 		}
+
+        train = NoiseHandler.RemoveNoise(train);
+
 		return train;
 	}
 

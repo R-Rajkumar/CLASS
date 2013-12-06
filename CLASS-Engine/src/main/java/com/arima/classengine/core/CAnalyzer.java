@@ -41,7 +41,7 @@ import com.mysql.jdbc.PreparedStatement;
 public class CAnalyzer {
 
 	private final double accuracyThreshold = 75;
-	private final boolean isTest = false;
+	private final boolean isTest = true;
 	private CClassifier classifierType;
 	private CEvaluator evaluatorType;
 	private  int binSize = 5;

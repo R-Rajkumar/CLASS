@@ -21,6 +21,8 @@ public class CReplaceMissingValuesByMean implements CMissingValuesHandler {
 			rmv.setInputFormat(train);
 			train = Filter.useFilter(train, rmv);
 
+        train = NoiseHandler.RemoveNoise(train);
+
 		return train;
 	}
 
